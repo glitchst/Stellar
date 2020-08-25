@@ -1,4 +1,4 @@
-import { AkairoClient, CommandHandler, ListenerHandler } from 'discord-akairo';z
+import { AkairoClient, CommandHandler, ListenerHandler } from 'discord-akairo';
 import { join } from 'path';
 import { prefix, owners } from '../Config';
 import { Message } from 'discord.js';
