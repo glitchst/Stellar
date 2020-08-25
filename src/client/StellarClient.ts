@@ -1,6 +1,6 @@
 import { AkairoClient, CommandHandler, ListenerHandler } from 'discord-akairo';
 import { join } from 'path';
-import { prefix, owners } from '../Config';
+import { prefix, owners, commandCooldown, commandUtilLifetime, commandRetries, commandRetryWaitTime } from '../Config';
 import { Message } from 'discord.js';
 
 declare module 'discord-akairo' {
@@ -30,9 +30,10 @@ export default class StellarClient extends AkairoClient {
     allowMention: true,
     handleEdits: true,
     commandUtil: true,
-    commandUtilLifetime: 3e5,
-    defaultCooldown: 60000,
+    commandUtilLifetime: commandUtilLifetime,
+    defaultCooldown: commandCooldown,
     ignorePermissions: owners,
+    ignoreCooldown: owners,
     argumentDefaults: {
       prompt: {
         modifyStart: (_: Message, str: string): string => `${str}\n\nType 'cancel' to cancel the command...`,
@@ -40,8 +41,8 @@ export default class StellarClient extends AkairoClient {
         timeout: 'You took too long to respond, so your command has been cancelled.',
         ended: 'You have exceeded the maximum number of tries for this command.',
         cancel: 'This command has been cancelled',
-        retries: 3,
-        time: 30000
+        retries: commandRetries,
+        time: commandRetryWaitTime
       }
     }
   });
