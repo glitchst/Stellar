@@ -15,7 +15,7 @@ export default class ReadyListener extends Listener {
 
     this.client.user.setActivity({
       type: 'LISTENING',
-      name: 'Dame da ne, dame yo, dame nanoyo'
+      name: 'Dame da ne, dame yo'
     });
   }
 }

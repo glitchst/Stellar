@@ -18,6 +18,7 @@
   "homepage": "https://github.com/macs0/Stellar#readme",
   "dependencies": {
     "@types/node": "^14.6.0",
+    "common-tags": "^1.8.0",
     "discord-akairo": "^8.1.0",
     "discord.js": "^12.3.1",
     "dotenv": "^8.2.0",
